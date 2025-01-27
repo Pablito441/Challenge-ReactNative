@@ -8,6 +8,7 @@ import { fetchSpeciesName, fetchPeopleDataByPage } from "../services/peopleServi
 
 export default function Search() {
   const [characters, setCharacters] = useState<Character[]>([]);
+  const [searchText, setSearchText] = useState<string>('');
 
   useEffect(() => {
     const loadCharacters = async () => {
@@ -34,21 +35,26 @@ export default function Search() {
     loadCharacters();
   }, []);
 
+  const filteredCharacters = characters.filter(character =>
+    character.name.toLowerCase().startsWith(searchText.toLowerCase())
+  );
+
   return (
     <View style={styles.container}>
       <View style={styles.searchContainer}>
         <Ionicons name="search" size={24} color="#fff" style={styles.icon} />
         <TextInput
           style={styles.input}
-          // placeholder="Search"
           placeholderTextColor="#fff"
+          value={searchText}
+          onChangeText={setSearchText}
         />
       </View>
       <ScrollView 
         style={styles.scrollContainer} 
         contentContainerStyle={styles.scrollContent}
       >
-        {characters.map(character => (
+        {filteredCharacters.map(character => (
           <ItemCategories 
             key={character.url} 
             nameItem={character.name} 

@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, StyleSheet, TextInput, ScrollView } from 'react-native';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { fetchPeopleDataByPage, fetchSpeciesName } from '../services/peopleService';
-//url base
-import API_URL from '@/config';
-//types
-
-import { Link } from 'expo-router';
 import Categories from '../components/Categories';
 import ItemCategories from '../components/ItemCategories';
 import ListItemCategories from '../components/ListItemCategories';
