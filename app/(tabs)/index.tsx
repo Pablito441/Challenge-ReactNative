@@ -83,45 +83,45 @@ export default function Home() {
   }, [currentPage, activeCategory]);
 
   return (
+    <View style={styles.container}>
+      <Categories onCategoryChange={setActiveCategory} activeCategory={activeCategory} />
 
-      <ScrollView style={styles.container}>
 
-        <View style={styles.searchContainer}>
-          <Ionicons name="search" size={24} color="#fff" style={styles.icon} />
-          <TextInput
-            style={styles.input}
-            placeholder="Search"
-            placeholderTextColor="#fff"
-          />
-        </View>
 
-        <Categories onCategoryChange={setActiveCategory} activeCategory={activeCategory} />
-        {activeCategory === 'Personajes' && (
-          <>
-            <ListItemCategories totalPages={totalPages} onPageChange={setCurrentPage} />
+      {activeCategory === 'Personajes' && (
+        <>
+          <ListItemCategories totalPages={totalPages} onPageChange={setCurrentPage} />
+          <ScrollView style={styles.scrollContent}>
             {characters.map((character, index) => (
-              <ItemCategories key={index} nameItem={character.name} descriptionItem={character.speciesName} data={character}/>
+              <ItemCategories key={index} nameItem={character.name} descriptionItem={character.speciesName} data={character} />
             ))}
-          </>
-        )}
-        {activeCategory === 'Planetas' && (
-          <>
-            <ListItemCategories totalPages={totalPages} onPageChange={setCurrentPage} />
-            {planets.map((planet, index) => (
-              <ItemCategories key={index} nameItem={planet.name} descriptionItem={planet.climate} data={planet}/>
-            ))}
-          </>
-        )}
-        {activeCategory === 'Peliculas' && (
-          <>
-            <ListItemCategories totalPages={totalPages} onPageChange={setCurrentPage} />
-            {films.map((film, index) => (
-              <ItemCategories key={index} nameItem={`Star wars: ${film.title}`} descriptionItem={`Productor: ${film.producer}`} data={film}/>
-            ))}
-          </>
-        )}
+          </ScrollView>
 
-      </ScrollView>
+        </>
+      )}
+      {activeCategory === 'Planetas' && (
+        <>
+          <ListItemCategories totalPages={totalPages} onPageChange={setCurrentPage} />
+          <ScrollView style={styles.scrollContent}>
+            {planets.map((planet, index) => (
+              <ItemCategories key={index} nameItem={planet.name} descriptionItem={planet.climate} data={planet} />
+            ))}
+          </ScrollView>
+
+        </>
+      )}
+      {activeCategory === 'Peliculas' && (
+        <>
+          <ListItemCategories totalPages={totalPages} onPageChange={setCurrentPage} />
+          <ScrollView style={styles.scrollContent}>
+            {films.map((film, index) => (
+              <ItemCategories key={index} nameItem={`Star wars: ${film.title}`} descriptionItem={`Productor: ${film.producer}`} data={film} />
+            ))}
+          </ScrollView>
+
+        </>
+      )}
+    </View>
   );
 };
 
@@ -132,24 +132,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0A0A0A',
-    marginBottom: 40,
+    // borderWidth:2,
+    // borderColor: 'red',
+    marginBottom: 70,
   },
-  searchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderRadius: 25,
-    borderWidth: 1.5,
-    borderColor: '#363636',
-    paddingVertical: 1,
-    paddingHorizontal: 10,
-    width: '90%',
-    marginTop: 7,
+  scrollContent: {
+
   },
-  icon: {
-    marginRight: 10,
-  },
-  input: {
-    flex: 1,
-    color: '#fff',
-  },
+
 });

@@ -10,7 +10,7 @@ import { Planet } from '../types/Planet';
 interface ItemCategoriesProps {
   nameItem: string;
   descriptionItem: string;
-  data: Character | Film | Planet ;
+  data: Character | Film | Planet;
 }
 
 // Función para generar un color aleatorio
@@ -56,12 +56,13 @@ export const ItemCategories: React.FC<ItemCategoriesProps> = ({ nameItem, descri
 const styles = StyleSheet.create({
   containerMain: {
     width: '100%',
-    height: '6%',
+    height: 50,
     marginVertical: 2.5,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     borderRadius: 10,
+    backgroundColor: '#1A1A1A',
   },
   containerImg: {
     marginRight: 10,
