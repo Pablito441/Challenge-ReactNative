@@ -8,6 +8,7 @@ export const fetchNameUrl = async (speciesUrl: string) => {
         return 'Unknown';
     }
 };
+
 export const fetchTitleNameUrl = async (speciesUrl: string) => {
     try {
         const response = await fetch(speciesUrl);
@@ -18,3 +19,5 @@ export const fetchTitleNameUrl = async (speciesUrl: string) => {
         return 'Unknown';
     }
 };
+
+export default { fetchNameUrl, fetchTitleNameUrl };

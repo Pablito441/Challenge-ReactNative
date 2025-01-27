@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-export const ListItemCategories: React.FC<{ totalPages: number, onPageChange: (page: number) => void }> = ({ totalPages, onPageChange }) => {
+const ListItemCategories: React.FC<{ totalPages: number, onPageChange: (page: number) => void }> = ({ totalPages, onPageChange }) => {
   const [currentPage, setCurrentPage] = React.useState<number>(1);
 
   const handlePageChange = (page: number) => {
@@ -34,7 +34,7 @@ export const ListItemCategories: React.FC<{ totalPages: number, onPageChange: (p
     </View>
   );
 };
-
+export default ListItemCategories;
 const styles = StyleSheet.create({
   paginationContainer: {
     flexDirection: 'row',

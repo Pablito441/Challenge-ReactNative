@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, ScrollView } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
-import { Character } from '../types/Character';
-import { Film } from '../types/Film';
-import { Planet } from '../types/Planet';
+import { Character } from '../../types/Character';
+import { Film } from '../../types/Film';
+import { Planet } from '../../types/Planet';
 import { fetchNameUrl, fetchTitleNameUrl } from '../services/urlServices';
 
 export default function ModalCategories() {

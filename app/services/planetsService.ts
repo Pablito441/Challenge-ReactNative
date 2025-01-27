@@ -1,6 +1,6 @@
 import API_URL from "../../config";
 
-export const fetchPlanetsDataByPage = async (page: number) => {
+const fetchPlanetsDataByPage = async (page: number) => {
     try {
         const response = await fetch(`${API_URL}planets/?page=${page}`);
         const data = await response.json();
@@ -10,3 +10,5 @@ export const fetchPlanetsDataByPage = async (page: number) => {
         throw error;
     }
 };
+
+export default fetchPlanetsDataByPage;

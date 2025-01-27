@@ -1,4 +1,4 @@
-export type Character = {
+type Character = {
   name: string;
   height: string;
   mass: string;
@@ -17,3 +17,5 @@ export type Character = {
   edited: string;
   url: string;
 }; 
+
+export default Character;

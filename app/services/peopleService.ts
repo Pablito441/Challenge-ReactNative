@@ -1,5 +1,5 @@
 import API_URL from "../../config";
-import { Character } from '../types/Character';
+import Character from "../../types/Character";
 
 export const fetchPeopleDataByPage = async (page: number): Promise<Character[]> => {
     try {
@@ -12,6 +12,7 @@ export const fetchPeopleDataByPage = async (page: number): Promise<Character[]> 
     }
 };
 
+
 export const fetchSpeciesName = async (speciesUrl: string): Promise<string> => {
   try {
     const response = await fetch(speciesUrl);
@@ -22,3 +23,6 @@ export const fetchSpeciesName = async (speciesUrl: string): Promise<string> => {
     return 'Unknown';
   }
 }; 
+
+
+export default {fetchPeopleDataByPage, fetchSpeciesName};

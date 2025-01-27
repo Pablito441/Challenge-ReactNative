@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, StyleSheet, TextInput, ScrollView } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { Categories } from '../components/Categories';
-import { ListItemCategories } from '../components/ListItemCategories';
-import { ItemCategories } from '../components/ItemCategories';
 import { fetchPeopleDataByPage, fetchSpeciesName } from '../services/peopleService';
 //url base
 import API_URL from '@/config';
 //types
-import { Character } from '../types/Character';
-import { Planet } from '../types/Planet';
-import { Film } from '../types/Film';
-import { fetchTotalPages } from '../services/pagesService';
-import { fetchPlanetsDataByPage } from '../services/planetsService';
-import { fetchFilmsDataByPage } from '../services/filmService';
+
 import { Link } from 'expo-router';
+import Categories from '../components/Categories';
+import ItemCategories from '../components/ItemCategories';
+import ListItemCategories from '../components/ListItemCategories';
+import Planet from '../../types/Planet';
+import Character from '../../types/Character';
+import Film from '../../types/Film';
+import fetchTotalPages from '../services/pagesService';
+import fetchFilmsDataByPage from '../services/filmService';
+import fetchPlanetsDataByPage from '../services/planetsService';
 
 export default function Home() {
   const [planets, setPlanets] = useState<Planet[]>([]);

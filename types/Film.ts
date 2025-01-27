@@ -1,4 +1,4 @@
-export type Film = {
+type Film = {
   title: string;
   episode_id: number;
   opening_crawl: string;
@@ -14,3 +14,5 @@ export type Film = {
   edited: string;
   url: string;
 }; 
+
+export default Film;

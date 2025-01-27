@@ -1,6 +1,6 @@
 import API_URL from '@/config';
 
-export const fetchTotalPages = async (category: string): Promise<number> => {
+const fetchTotalPages = async (category: string): Promise<number> => {
   try {
     let response;
     if(category === "Personajes"){
@@ -24,3 +24,4 @@ export const fetchTotalPages = async (category: string): Promise<number> => {
     throw error;
   }
 };
+export default fetchTotalPages;

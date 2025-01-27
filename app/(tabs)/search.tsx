@@ -1,10 +1,10 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Text, View, StyleSheet, TextInput, ScrollView } from "react-native";
 import React, { useEffect, useState } from 'react';
-import { fetchTotalPages } from '../services/pagesService';
-import { fetchPeopleDataByPage, fetchSpeciesName } from '../services/peopleService';
-import { Character } from "../types/Character";
-import { ItemCategories } from '../components/ItemCategories';
+import ItemCategories from "../components/ItemCategories";
+import Character from "../../types/Character";
+import fetchTotalPages from "../services/pagesService";
+import { fetchSpeciesName, fetchPeopleDataByPage } from "../services/peopleService";
 
 export default function Search() {
   const [characters, setCharacters] = useState<Character[]>([]);

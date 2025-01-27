@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-export const Categories: React.FC<{ onCategoryChange: (category: string) => void, activeCategory: string }> = ({ onCategoryChange, activeCategory }) => {
+const Categories: React.FC<{ onCategoryChange: (category: string) => void, activeCategory: string }> = ({ onCategoryChange, activeCategory }) => {
   const categories = ['Personajes', 'Planetas', 'Peliculas'];
 
   return (
@@ -21,6 +21,7 @@ export const Categories: React.FC<{ onCategoryChange: (category: string) => void
     </View>
   );
 };
+export default Categories;
 
 const styles = StyleSheet.create({
   container: {

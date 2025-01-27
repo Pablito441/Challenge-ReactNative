@@ -1,6 +1,6 @@
 import API_URL from "../../config";
 
-export const fetchFilmsDataByPage = async (page: number) => {
+const fetchFilmsDataByPage = async (page: number) => {
     try {
         const response = await fetch(`${API_URL}films/?page=${page}`);
         const data = await response.json();
@@ -10,3 +10,4 @@ export const fetchFilmsDataByPage = async (page: number) => {
         throw error;
     }
 };
+export default fetchFilmsDataByPage;

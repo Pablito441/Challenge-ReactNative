@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Link, useRouter } from 'expo-router';
-import { Character } from '../types/Character';
-import { Film } from '../types/Film';
-import { Planet } from '../types/Planet';
+import Character from '../../types/Character';
+import Film from '../../types/Film';
+import Planet from '../../types/Planet';
 
 // Define la interfaz para las props
 interface ItemCategoriesProps {
@@ -23,7 +23,7 @@ const getRandomColor = () => {
   return color;
 };
 
-export const ItemCategories: React.FC<ItemCategoriesProps> = ({ nameItem, descriptionItem, data }) => {
+const ItemCategories: React.FC<ItemCategoriesProps> = ({ nameItem, descriptionItem, data }) => {
   const router = useRouter();
 
   // Obtener la inicial del nombre y la especie
@@ -52,7 +52,7 @@ export const ItemCategories: React.FC<ItemCategoriesProps> = ({ nameItem, descri
     </View>
   );
 };
-
+export default ItemCategories;
 const styles = StyleSheet.create({
   containerMain: {
     width: '100%',
