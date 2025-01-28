@@ -176,7 +176,9 @@ export default function Home() {
           </ScrollView>
         ) : (
           <>
-            <ListItemCategories totalPages={totalPages} onPageChange={setCurrentPage} />
+            <View style={styles.containerListItemCategories}>
+              <ListItemCategories totalPages={totalPages} onPageChange={setCurrentPage} />
+            </View>
             <ScrollView style={styles.scrollContent}>
               {characters.map((character, index) => (
                 <ItemCategories
@@ -207,7 +209,9 @@ export default function Home() {
           </ScrollView>
         ) : (
           <>
-            <ListItemCategories totalPages={totalPages} onPageChange={setCurrentPage} />
+            <View style={styles.containerListItemCategories}>
+              <ListItemCategories totalPages={totalPages} onPageChange={setCurrentPage} />
+            </View>
             <ScrollView style={styles.scrollContent}>
               {planets.map((planet, index) => (
                 <ItemCategories key={index} nameItem={planet.name} descriptionItem={planet.climate} data={planet} />
@@ -234,7 +238,9 @@ export default function Home() {
           </ScrollView>
         ) : (
           <>
-            <ListItemCategories totalPages={totalPages} onPageChange={setCurrentPage} />
+            <View style={styles.containerListItemCategories}>
+              <ListItemCategories totalPages={totalPages} onPageChange={setCurrentPage} />
+            </View>
             <ScrollView style={styles.scrollContent}>
               {films.map((film, index) => (
                 <ItemCategories key={index} nameItem={`Star wars: ${film.title}`} descriptionItem={`Productor: ${film.producer}`} data={film} />
@@ -250,7 +256,8 @@ export default function Home() {
 
 const styles = StyleSheet.create({
   linkText: {
-    color: '#ffffff'
+    color: '#ffffff',
+
   },
   container: {
     flex: 1,
@@ -258,11 +265,14 @@ const styles = StyleSheet.create({
     // borderWidth:2,
     // borderColor: 'red',
     marginBottom: 40,
+
   },
   scrollContainer: {
     width: '100%',
+
   },
   scrollContent: {
+
   },
   searchContainerMain: {
     alignItems: 'center',
@@ -276,6 +286,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     width: '95%',
     marginVertical: 5,
+
   },
   icon: {
     marginRight: 10,
@@ -283,6 +294,10 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     color: '#fff',
-  },
 
+  },
+  containerListItemCategories: {
+    height: 35,
+    marginBottom: 2,
+  },
 });
