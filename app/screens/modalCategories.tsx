@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, ScrollView } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
-import { Character } from '../../types/Character';
-import { Film } from '../../types/Film';
-import { Planet } from '../../types/Planet';
+
 import { fetchNameUrl, fetchTitleNameUrl } from '../services/urlServices';
+import Character from '@/types/Character';
+import Film from '@/types/Film';
+import Planet from '@/types/Planet';
 
 export default function ModalCategories() {
     const params = useLocalSearchParams();
@@ -169,22 +170,34 @@ export default function ModalCategories() {
                     <Text style={s.detail}>Año de nacimiento: {character.birth_year}</Text>
                     <Text style={s.detail}>Género: {character.gender}</Text>
                     <Text style={s.detail}>Planeta Natal: {homeworldName || 'Cargando...'}</Text>
-                    <Text style={s.detail}>Películas:</Text>
-                    {films.map((filmName, index) => (
-                        <Text key={index} style={s.detail}> `Star Wars: {filmName}`</Text>
-                    ))}
-                    <Text style={s.detail}>Especies:</Text>
-                    {species.map((speciesName, index)=>(
-                        <Text key={index} style={s.detail}>{speciesName}</Text>
-                    ))}
-                    <Text style={s.detail}>Vehiculos:</Text>
-                    {vehicles.map((vehicleName,index)=>(
-                        <Text key={index} style={s.detail}>{vehicleName}</Text>
-                    ))}
-                    <Text style={s.detail}>Naves Espaciales:</Text>
-                    {starships.map((starshipsName,index)=>(
-                        <Text key={index} style={s.detail}>{starshipsName}</Text>
-                    ))}
+                    
+                    <Text style={s.subTitle}>Películas en las que aparece:</Text>
+                    <View style={s.listContainer}>
+                        {films.map((filmName, index) => (
+                            <Text key={index} style={s.listItem}>- Star Wars: {filmName}</Text>
+                        ))}
+                    </View>
+                    
+                    <Text style={s.subTitle}>Especie/s:</Text>
+                    <View style={s.listContainer}>
+                        {species.map((speciesName, index) => (
+                            <Text key={index} style={s.listItem}>- {speciesName}</Text>
+                        ))}
+                    </View>
+                    
+                    <Text style={s.subTitle}>Vehículos:</Text>
+                    <View style={s.listContainer}>
+                        {vehicles.map((vehicleName, index) => (
+                            <Text key={index} style={s.listItem}>- {vehicleName}</Text>
+                        ))}
+                    </View>
+                    
+                    <Text style={s.subTitle}>Naves Espaciales:</Text>
+                    <View style={s.listContainer}>
+                        {starships.map((starshipsName, index) => (
+                            <Text key={index} style={s.listItem}>- {starshipsName}</Text>
+                        ))}
+                    </View>
                 </>
             );
         } else if ('episode_id' in data) {
@@ -197,27 +210,41 @@ export default function ModalCategories() {
                     <Text style={s.detail}>Fecha de lanzamiento: {film.release_date}</Text>
                     <Text style={s.detail}>Episodio: {film.episode_id}</Text>
                     <Text style={s.detail}>Sinopsis: {film.opening_crawl}</Text>
-                    <Text style={s.detail}>Personajes:</Text>
-                    {characters.map((charactersName,index)=>(
-                        <Text key={index} style={s.detail}>{charactersName}</Text>
-                    ))}
-                    <Text style={s.detail}>Planetas:</Text>
-                    {planets.map((planetsName,index)=>(
-                        <Text key={index} style={s.detail}>{planetsName}</Text>
-                    ))}
-                    <Text style={s.detail}>Naves Espaciales:</Text>
-                    {starships.map((starshipsName,index)=>(
-                        <Text key={index} style={s.detail}>{starshipsName}</Text>
-                    ))}
-                    <Text style={s.detail}>Vehiculos:</Text>
-                    {vehicles.map((vehicleName,index)=>(
-                        <Text key={index} style={s.detail}>{vehicleName}</Text>
-                    ))}
-                    <Text style={s.detail}>Especies:</Text>
-                    {species.map((speciesName, index)=>(
-                        <Text key={index} style={s.detail}>{speciesName}</Text>
-                    ))}
                     
+                    <Text style={s.subTitle}>Personajes:</Text>
+                    <View style={s.listContainer}>
+                        {characters.map((charactersName, index) => (
+                            <Text key={index} style={s.listItem}>- {charactersName}</Text>
+                        ))}
+                    </View>
+                    
+                    <Text style={s.subTitle}>Planetas:</Text>
+                    <View style={s.listContainer}>
+                        {planets.map((planetsName, index) => (
+                            <Text key={index} style={s.listItem}>- {planetsName}</Text>
+                        ))}
+                    </View>
+                    
+                    <Text style={s.subTitle}>Naves Espaciales:</Text>
+                    <View style={s.listContainer}>
+                        {starships.map((starshipsName, index) => (
+                            <Text key={index} style={s.listItem}>- {starshipsName}</Text>
+                        ))}
+                    </View>
+                    
+                    <Text style={s.subTitle}>Vehículos:</Text>
+                    <View style={s.listContainer}>
+                        {vehicles.map((vehicleName, index) => (
+                            <Text key={index} style={s.listItem}>- {vehicleName}</Text>
+                        ))}
+                    </View>
+                    
+                    <Text style={s.subTitle}>Especies:</Text>
+                    <View style={s.listContainer}>
+                        {species.map((speciesName, index) => (
+                            <Text key={index} style={s.listItem}>- {speciesName}</Text>
+                        ))}
+                    </View>
                 </>
             );
         } else if ('climate' in data) {
@@ -227,20 +254,26 @@ export default function ModalCategories() {
                     <Text style={s.title}>{planet.name}</Text>
                     <Text style={s.detail}>Periodo Rotacional: {planet.rotation_period}</Text>
                     <Text style={s.detail}>Periodo Orbital: {planet.orbital_period}</Text>
-                    <Text style={s.detail}>Diametro: {planet.diameter}</Text>
+                    <Text style={s.detail}>Diámetro: {planet.diameter}</Text>
                     <Text style={s.detail}>Clima: {planet.climate}</Text>
                     <Text style={s.detail}>Gravedad: {planet.gravity}</Text>
                     <Text style={s.detail}>Terreno: {planet.terrain}</Text>
                     <Text style={s.detail}>Agua Superficial: {planet.surface_water}</Text>
                     <Text style={s.detail}>Población: {planet.population}</Text>
-                    <Text style={s.detail}>Residentes:</Text>
-                    {residents.map((residentsName, index) => (
-                        <Text key={index} style={s.detail}>{residentsName}</Text>
-                    ))}
-                    <Text style={s.detail}>Películas:</Text>
-                    {films.map((filmsName, index) => (
-                        <Text key={index} style={s.detail}> `Star Wars: {filmsName}`</Text>
-                    ))}
+                    
+                    <Text style={s.subTitle}>Residentes:</Text>
+                    <View style={s.listContainer}>
+                        {residents.map((residentsName, index) => (
+                            <Text key={index} style={s.listItem}>- {residentsName}</Text>
+                        ))}
+                    </View>
+                    
+                    <Text style={s.subTitle}>Películas en las que aparece:</Text>
+                    <View style={s.listContainer}>
+                        {films.map((filmsName, index) => (
+                            <Text key={index} style={s.listItem}>- Star Wars: {filmsName}</Text>
+                        ))}
+                    </View>
                 </>
             );
         }
@@ -256,15 +289,14 @@ export default function ModalCategories() {
 const s = StyleSheet.create({
     containerMain: {
         flexGrow: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
         backgroundColor: '#0A0A0A',
-        padding: 20,
+        paddingHorizontal: 30,
+        paddingVertical: 10,
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#ffffff',
+        color: '#988EE4',
         marginBottom: 10,
     },
     detail: {
@@ -274,5 +306,21 @@ const s = StyleSheet.create({
     },
     linkText: {
         color: '#ffffff',
+    },
+    subTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#ffffff',
+        marginTop: 15,
+        marginBottom: 5,
+    },
+    listContainer: {
+        marginBottom: 10,
+        paddingLeft: 10,
+    },
+    listItem: {
+        fontSize: 16,
+        color: '#ffffff',
+        marginBottom: 3,
     },
 });

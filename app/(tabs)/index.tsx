@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#0A0A0A',
     // borderWidth:2,
     // borderColor: 'red',
-    marginBottom: 70,
+    marginBottom: 40,
   },
   scrollContainer: {
     width: '100%',

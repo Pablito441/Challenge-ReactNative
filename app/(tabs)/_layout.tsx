@@ -1,5 +1,5 @@
 import { Stack, Tabs } from 'expo-router';
-
+import React from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { StatusBar } from 'react-native';
 import { useEffect } from 'react';
@@ -62,7 +62,7 @@ export default function TabLayout() {
           tabBarActiveTintColor: '#ffd33d', // el color del icon la pestaña de navegacion seleccionada en la barra inferior
           tabBarStyle: { // barra inferior
             backgroundColor: '#0A0A0A',
-            height: 70,
+            height: 40,
             position: 'absolute', // Asegúrate de que la barra esté en la parte inferior
             bottom: 0,
             left: 0,
@@ -79,15 +79,17 @@ export default function TabLayout() {
             tabBarIcon: ({ color, focused }) => (
               <Ionicons name={focused ? 'home-sharp' : 'home-outline'} color={color} size={26} />
             ),
+            tabBarLabel: '',
           }}
         />
         <Tabs.Screen
-          name="search"
+          name="about"
           options={{
-            title: 'Search',
+            title: 'About the Application',
             tabBarIcon: ({ color, focused }) => (
-              <Ionicons name={focused ? 'search' : 'search-outline'} color={color} size={26} />
+              <Ionicons name={focused ? 'information-circle' : 'information-circle-outline'} color={color} size={26} />
             ),
+            tabBarLabel: '',
           }}
         />
       </Tabs>
